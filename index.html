@@ -1,0 +1,100 @@
+﻿<!doctype html>
+<html lang="en"> 
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arrakis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <header class="hero-header">
+      <div class="logo">DUNE</div>
+      <nav class="nav">
+        <a href="#story">Story</a>
+        <a href="#world">World</a>
+        <a href="#characters">Characters</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+    </header>
+
+    <div class="hero-content">
+      <h1>DUNE: PART THREE</h1>
+      <p>The trailer for the highly anticipated Dune sequel is now available!</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=3_9vCamtuPY" target="_blank">WATCH IT NOW!</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <section id="story" class="section">
+      <h2>Story</h2>
+      <p>In the far future, noble Houses fight for control of the desert planet Arrakis, home of the spice melange. Paul Atreides must survive insidious politics, giant sandworms, and his own destiny.</p>
+    </section>
+
+    <section id="world" class="section section-alt">
+      <h2>World</h2>
+      <p>Arrakis is harsh and unforgiving: endless dunes, powerful storms, and ancient desert tribes. The spice that comes from its sands is the most valuable substance in the universe.</p>
+      <div class="stats">
+        <article>
+          <h3>Spice</h3>
+          <p>Melange controls space travel, extends life, and unlocks prescience.</p>
+        </article>
+        <article>
+          <h3>Sandworms</h3>
+          <p>Colossal guardians of the desert, they are both threat and resource for the Fremen.</p>
+        </article>
+        <article>
+          <h3>Fremen</h3>
+          <p>Native fighters adapted to the planet, their survival culture is unmatched.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="characters" class="section">
+      <h2>Characters</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Paul Atreides</h3>
+          <p>The heir of House Atreides and the one foretold to bring change to the universe.</p>
+        </article>
+        <article class="card">
+          <h3>Lady Jessica</h3>
+          <p>A Bene Gesserit with loyalty to her son and secret plans of her own.</p>
+        </article>
+        <article class="card">
+          <h3>Baron Harkonnen</h3>
+          <p>Ruthless antagonist determined to crush House Atreides and dominate Arrakis.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="section section-alt">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><div>Sand Dunes</div></div>
+        <div class="gallery-item"><div>Spice Harvest</div></div>
+        <div class="gallery-item"><div>Fremen Riders</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Dune Fan Page — by Jaume Pallàs</p>
+  </footer>
+
+  <script>
+    const heroBg = document.querySelector('.hero-bg');
+    heroBg.style.backgroundImage = `url('dune-part-three.jpg'), radial-gradient(circle at top left, rgba(52, 31, 15, 0.75), rgba(17, 17, 17, 0.9))`;
+    
+    // Parallax scroll
+    window.addEventListener('scroll', () => {
+      const scroll = window.pageYOffset;
+      heroBg.style.transform = `translateY(${scroll * 0.35}px)`;
+    });
+  </script>
+</body>
+</html>
