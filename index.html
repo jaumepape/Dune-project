@@ -13,88 +13,355 @@
     <header class="hero-header">
       <div class="logo">DUNE</div>
       <nav class="nav">
-        <a href="#story">Story</a>
-        <a href="#world">World</a>
-        <a href="#characters">Characters</a>
-        <a href="#gallery">Gallery</a>
+        <a href="#story" id="nav-story">Story</a>
+        <a href="#world" id="nav-world">World</a>
+        <a href="#map" id="nav-map">Map</a>
+        <a href="#characters" id="nav-characters">Characters</a>
+        <a href="#gallery" id="nav-gallery">Gallery</a>
+        <div class="lang-switch" aria-label="Language selector">
+          <button class="lang-btn active" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="es">ES</button>
+          <button class="lang-btn" type="button" data-lang="ca">CA</button>
+        </div>
       </nav>
     </header>
 
     <div class="hero-content">
-      <h1>DUNE: PART THREE</h1>
-      <p>The trailer for the highly anticipated Dune sequel is now available!</p>
+      <h1 id="hero-title">DUNE: PART THREE</h1>
+      <p id="hero-subtitle">The trailer for the highly anticipated Dune sequel is now available!</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=3_9vCamtuPY" target="_blank">WATCH IT NOW!</a>
+        <a class="btn btn-primary" id="btn-trailer" href="https://www.youtube.com/watch?v=3_9vCamtuPY" target="_blank" rel="noopener noreferrer">WATCH IT NOW!</a>
+        <a class="btn btn-secondary" id="btn-explore" href="#map">EXPLORE ARRAKIS</a>
       </div>
     </div>
   </div>
 
   <main class="site-main">
     <section id="story" class="section">
-      <h2>Story</h2>
-      <p>In the far future, noble Houses fight for control of the desert planet Arrakis, home of the spice melange. Paul Atreides must survive insidious politics, giant sandworms, and his own destiny.</p>
+      <h2 id="story-title">Story</h2>
+      <p id="story-text">In the far future, noble Houses fight for control of the desert planet Arrakis, home of the spice melange. Paul Atreides must survive insidious politics, giant sandworms, and his own destiny.</p>
     </section>
 
     <section id="world" class="section section-alt">
-      <h2>World</h2>
-      <p>Arrakis is harsh and unforgiving: endless dunes, powerful storms, and ancient desert tribes. The spice that comes from its sands is the most valuable substance in the universe.</p>
+      <h2 id="world-title">World</h2>
+      <p id="world-text">Arrakis is harsh and unforgiving: endless dunes, powerful storms, and ancient desert tribes. The spice that comes from its sands is the most valuable substance in the universe.</p>
       <div class="stats">
         <article>
-          <h3>Spice</h3>
-          <p>Melange controls space travel, extends life, and unlocks prescience.</p>
+          <h3 id="stat-spice-title">Spice</h3>
+          <p id="stat-spice-text">Melange controls space travel, extends life, and unlocks prescience.</p>
         </article>
         <article>
-          <h3>Sandworms</h3>
-          <p>Colossal guardians of the desert, they are both threat and resource for the Fremen.</p>
+          <h3 id="stat-worms-title">Sandworms</h3>
+          <p id="stat-worms-text">Colossal guardians of the desert, they are both threat and resource for the Fremen.</p>
         </article>
         <article>
-          <h3>Fremen</h3>
-          <p>Native fighters adapted to the planet, their survival culture is unmatched.</p>
+          <h3 id="stat-fremen-title">Fremen</h3>
+          <p id="stat-fremen-text">Native fighters adapted to the planet, their survival culture is unmatched.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="map" class="section">
+      <h2 id="map-title">Map Of Arrakis</h2>
+      <p id="map-text">Hover over the tactical markers to reveal key strategic locations and factions.</p>
+      <div class="arrakis-map">
+        <div class="map-marker" style="left: 22%; top: 34%;" data-title="Arrakeen" data-info="Imperial administrative center and political heart of the planet."></div>
+        <div class="map-marker" style="left: 63%; top: 49%;" data-title="Sietch Tabr" data-info="Hidden Fremen stronghold carved deep into stone and sand."></div>
+        <div class="map-marker" style="left: 41%; top: 67%;" data-title="Spice Basin" data-info="High-yield extraction zone guarded by harvesters and patrols."></div>
+        <div class="map-marker" style="left: 76%; top: 24%;" data-title="Carthag" data-info="Former Harkonnen seat of power, fortified and heavily surveilled."></div>
+        <div class="map-marker" style="left: 15%; top: 59%;" data-title="Shield Wall" data-info="Natural rock barrier that protects settlements from deep-desert storms."></div>
+        <div class="map-marker" style="left: 54%; top: 29%;" data-title="Hagga Basin" data-info="Remote basin with hidden routes used by Fremen scouts."></div>
+        <div class="map-marker" style="left: 34%; top: 18%;" data-title="Imperial Landing Field" data-info="Primary orbital drop zone for Sardaukar and royal transports."></div>
+        <div class="map-info" id="map-info">
+          <h3 id="map-info-title">Arrakis Intel</h3>
+          <p id="map-info-text">Select a marker to inspect the region.</p>
+        </div>
       </div>
     </section>
 
     <section id="characters" class="section">
-      <h2>Characters</h2>
-      <div class="card-grid">
-        <article class="card">
+      <h2 id="characters-title">Characters</h2>
+      <div class="character-slider" data-index="0">
+        <button class="slider-arrow" id="prev-character" type="button" aria-label="Previous character">&#10094;</button>
+        <article class="character-slide" id="character-slide">
+          <p class="faction">House Atreides</p>
           <h3>Paul Atreides</h3>
           <p>The heir of House Atreides and the one foretold to bring change to the universe.</p>
+          <blockquote>"My road leads into the desert."</blockquote>
         </article>
-        <article class="card">
-          <h3>Lady Jessica</h3>
-          <p>A Bene Gesserit with loyalty to her son and secret plans of her own.</p>
-        </article>
-        <article class="card">
-          <h3>Baron Harkonnen</h3>
-          <p>Ruthless antagonist determined to crush House Atreides and dominate Arrakis.</p>
-        </article>
+        <button class="slider-arrow" id="next-character" type="button" aria-label="Next character">&#10095;</button>
+      </div>
+      <div class="slider-dots" id="slider-dots">
+        <button class="dot active" type="button" data-dot="0" aria-label="Paul Atreides"></button>
+        <button class="dot" type="button" data-dot="1" aria-label="Lady Jessica"></button>
+        <button class="dot" type="button" data-dot="2" aria-label="Baron Harkonnen"></button>
+        <button class="dot" type="button" data-dot="3" aria-label="Chani"></button>
+        <button class="dot" type="button" data-dot="4" aria-label="Stilgar"></button>
+        <button class="dot" type="button" data-dot="5" aria-label="Princess Irulan"></button>
+        <button class="dot" type="button" data-dot="6" aria-label="Feyd-Rautha"></button>
       </div>
     </section>
 
     <section id="gallery" class="section section-alt">
-      <h2>Gallery</h2>
+      <h2 id="gallery-title">Gallery</h2>
       <div class="gallery-grid">
-        <div class="gallery-item"><div>Sand Dunes</div></div>
-        <div class="gallery-item"><div>Spice Harvest</div></div>
-        <div class="gallery-item"><div>Fremen Riders</div></div>
+        <div class="gallery-item gallery-sand-dunes"><div id="gal-1">Sand Dunes</div></div>
+        <div class="gallery-item gallery-placeholder gallery-spice-harvest"><div id="gal-2">Spice Harvest</div></div>
+        <div class="gallery-item gallery-placeholder gallery-fremen-riders"><div id="gal-3">Fremen Riders</div></div>
+        <div class="gallery-item gallery-placeholder gallery-ornithopter"><div id="gal-4">Ornithopter Flight</div></div>
+        <div class="gallery-item gallery-placeholder gallery-sietch"><div id="gal-5">Sietch Life</div></div>
+        <div class="gallery-item gallery-placeholder gallery-duel"><div id="gal-6">Final Duel</div></div>
+        <div class="gallery-item gallery-placeholder gallery-storm"><div id="gal-7">Coriolis Storm</div></div>
+        <div class="gallery-item gallery-placeholder gallery-imperial"><div id="gal-8">Imperial Court</div></div>
+        <div class="gallery-item gallery-placeholder gallery-worm"><div id="gal-9">Shai-Hulud</div></div>
+        <div class="gallery-item gallery-placeholder gallery-prophecy"><div id="gal-10">The Prophecy</div></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2026 Dune Fan Page — by Jaume Pallàs</p>
+    <p id="footer-copy">© 2026 Dune Fan Page — by Jaume Pallas</p>
   </footer>
 
   <script>
+    const translations = {
+      en: {
+        navStory: 'Story', navWorld: 'World', navMap: 'Map', navCharacters: 'Characters', navGallery: 'Gallery',
+        heroTitle: 'DUNE: PART THREE',
+        heroSubtitle: 'The trailer for the highly anticipated Dune sequel is now available!',
+        btnTrailer: 'WATCH IT NOW!', btnExplore: 'EXPLORE ARRAKIS',
+        storyTitle: 'Story',
+        storyText: 'In the far future, noble Houses fight for control of the desert planet Arrakis, home of the spice melange. Paul Atreides must survive insidious politics, giant sandworms, and his own destiny.',
+        worldTitle: 'World',
+        worldText: 'Arrakis is harsh and unforgiving: endless dunes, powerful storms, and ancient desert tribes. The spice that comes from its sands is the most valuable substance in the universe.',
+        statSpiceTitle: 'Spice', statSpiceText: 'Melange controls space travel, extends life, and unlocks prescience.',
+        statWormsTitle: 'Sandworms', statWormsText: 'Colossal guardians of the desert, they are both threat and resource for the Fremen.',
+        statFremenTitle: 'Fremen', statFremenText: 'Native fighters adapted to the planet, their survival culture is unmatched.',
+        mapTitle: 'Map Of Arrakis',
+        mapText: 'Hover over the tactical markers to reveal key strategic locations and factions.',
+        mapInfoTitle: 'Arrakis Intel', mapInfoText: 'Select a marker to inspect the region.',
+        charactersTitle: 'Characters', galleryTitle: 'Gallery',
+        gallery: ['Sand Dunes', 'Spice Harvest', 'Fremen Riders', 'Ornithopter Flight', 'Sietch Life', 'Final Duel', 'Coriolis Storm', 'Imperial Court', 'Shai-Hulud', 'The Prophecy'],
+        footer: '© 2026 Dune Fan Page — by Jaume Pallas'
+      },
+      es: {
+        navStory: 'Historia', navWorld: 'Mundo', navMap: 'Mapa', navCharacters: 'Personajes', navGallery: 'Galeria',
+        heroTitle: 'DUNE: PARTE TRES',
+        heroSubtitle: 'El trailer de la esperada secuela de Dune ya esta disponible.',
+        btnTrailer: 'VER TRAILER', btnExplore: 'EXPLORA ARRAKIS',
+        storyTitle: 'Historia',
+        storyText: 'En un futuro lejano, las grandes Casas luchan por el control de Arrakis, hogar de la especia melange. Paul Atreides debe sobrevivir a intrigas politicas, gusanos gigantes y su propio destino.',
+        worldTitle: 'Mundo',
+        worldText: 'Arrakis es duro e implacable: dunas infinitas, tormentas violentas y antiguas tribus del desierto. La especia de sus arenas es la sustancia mas valiosa del universo.',
+        statSpiceTitle: 'Especia', statSpiceText: 'La melange permite viajar por el espacio, alarga la vida y despierta la presciencia.',
+        statWormsTitle: 'Gusanos', statWormsText: 'Guardianes colosales del desierto, son amenaza y recurso para los Fremen.',
+        statFremenTitle: 'Fremen', statFremenText: 'Combatientes nativos adaptados al planeta, con una cultura de supervivencia unica.',
+        mapTitle: 'Mapa de Arrakis',
+        mapText: 'Pasa el cursor por los marcadores tacticos para descubrir zonas clave y facciones.',
+        mapInfoTitle: 'Intel de Arrakis', mapInfoText: 'Selecciona un marcador para inspeccionar la zona.',
+        charactersTitle: 'Personajes', galleryTitle: 'Galeria',
+        gallery: ['Dunas', 'Cosecha de especia', 'Jinetes Fremen', 'Vuelo de ornitoptero', 'Vida en el sietch', 'Duelo final', 'Tormenta coriolis', 'Corte imperial', 'Shai-Hulud', 'La profecia'],
+        footer: '© 2026 Dune Fan Page — por Jaume Pallas'
+      },
+      ca: {
+        navStory: 'Historia', navWorld: 'Mon', navMap: 'Mapa', navCharacters: 'Personatges', navGallery: 'Galeria',
+        heroTitle: 'DUNE: PART TRES',
+        heroSubtitle: 'El trailer de la nova sequela de Dune ja esta disponible.',
+        btnTrailer: 'MIRA EL TRAILER', btnExplore: 'EXPLORA ARRAKIS',
+        storyTitle: 'Historia',
+        storyText: 'En un futur llunya, les grans Cases lluiten pel control d\'Arrakis, origen de l\'especia melange. Paul Atreides ha de sobreviure a intrigues politiques, cucs gegants i al seu desti.',
+        worldTitle: 'Mon',
+        worldText: 'Arrakis es dur i implacable: dunes infinites, tempestes ferotges i antigues tribus del desert. L\'especia de la sorra es la substancia mes valuosa de l\'univers.',
+        statSpiceTitle: 'Especia', statSpiceText: 'La melange fa possible el viatge espacial, allarga la vida i obre la presciencia.',
+        statWormsTitle: 'Cucs de sorra', statWormsText: 'Guardians colossals del desert, son amenaça i recurs per als Fremen.',
+        statFremenTitle: 'Fremen', statFremenText: 'Combatents nadius adaptats al planeta, amb una cultura de supervivencia unica.',
+        mapTitle: 'Mapa d\'Arrakis',
+        mapText: 'Passa el cursor pels marcadors tactics per descobrir localitzacions i faccions clau.',
+        mapInfoTitle: 'Intel d\'Arrakis', mapInfoText: 'Selecciona un marcador per inspeccionar la zona.',
+        charactersTitle: 'Personatges', galleryTitle: 'Galeria',
+        gallery: ['Dunes', 'Collita d\'especia', 'Genets Fremen', 'Vol d\'ornitopter', 'Vida al sietch', 'Duel final', 'Tempesta coriolis', 'Cort imperial', 'Shai-Hulud', 'La profecia'],
+        footer: '© 2026 Dune Fan Page — per Jaume Pallas'
+      }
+    };
+
+    const mapLocations = {
+      en: [
+        { title: 'Arrakeen', info: 'Imperial administrative center and political heart of the planet.' },
+        { title: 'Sietch Tabr', info: 'Hidden Fremen stronghold carved deep into stone and sand.' },
+        { title: 'Spice Basin', info: 'High-yield extraction zone guarded by harvesters and patrols.' },
+        { title: 'Carthag', info: 'Former Harkonnen seat of power, fortified and heavily surveilled.' },
+        { title: 'Shield Wall', info: 'Natural rock barrier that protects settlements from deep-desert storms.' },
+        { title: 'Hagga Basin', info: 'Remote basin with hidden routes used by Fremen scouts.' },
+        { title: 'Imperial Landing Field', info: 'Primary orbital drop zone for Sardaukar and royal transports.' }
+      ],
+      es: [
+        { title: 'Arrakeen', info: 'Centro administrativo imperial y corazon politico del planeta.' },
+        { title: 'Sietch Tabr', info: 'Bastion Fremen oculto, tallado en piedra y arena.' },
+        { title: 'Cuenca de especia', info: 'Zona de extraccion de alto rendimiento custodiada por cosechadoras y patrullas.' },
+        { title: 'Carthag', info: 'Antigua sede Harkonnen, fortificada y bajo vigilancia constante.' },
+        { title: 'Muralla Escudo', info: 'Barrera rocosa natural que protege los asentamientos de las tormentas del desierto.' },
+        { title: 'Cuenca Hagga', info: 'Cuenca remota con rutas ocultas usadas por exploradores Fremen.' },
+        { title: 'Campo de aterrizaje imperial', info: 'Zona principal de despliegue orbital para Sardaukar y transportes reales.' }
+      ],
+      ca: [
+        { title: 'Arrakeen', info: 'Centre administratiu imperial i cor politic del planeta.' },
+        { title: 'Sietch Tabr', info: 'Fortalesa Fremen amagada, excavada entre roca i sorra.' },
+        { title: 'Conca de l\'especia', info: 'Zona d\'extraccio d\'alt rendiment protegida per recol·lectores i patrulles.' },
+        { title: 'Carthag', info: 'Antiga seu Harkonnen, fortificada i sota vigilancia constant.' },
+        { title: 'Mur Escut', info: 'Barrera rocosa natural que protegeix els assentaments de les tempestes del desert.' },
+        { title: 'Conca Hagga', info: 'Conca remota amb rutes ocultes utilitzades pels exploradors Fremen.' },
+        { title: 'Camp d\'aterratge imperial', info: 'Zona principal de desplegament orbital per als Sardaukar i transports reials.' }
+      ]
+    };
+
+    const charactersByLang = {
+      en: [
+        { faction: 'House Atreides', name: 'Paul Atreides', description: 'The heir of House Atreides and the one foretold to bring change to the universe.', quote: '"My road leads into the desert."' },
+        { faction: 'Bene Gesserit', name: 'Lady Jessica', description: 'A Bene Gesserit with loyalty to her son and secret plans of her own.', quote: '"Power over spice is power over all."' },
+        { faction: 'House Harkonnen', name: 'Baron Harkonnen', description: 'Ruthless antagonist determined to crush House Atreides and dominate Arrakis.', quote: '"Fear is the blade we sharpen."' },
+        { faction: 'Fremen', name: 'Chani', description: 'A fierce Fremen warrior, guide, and Paul\'s closest ally in the desert uprising.', quote: '"This world made us strong."' },
+        { faction: 'Fremen', name: 'Stilgar', description: 'Leader of Sietch Tabr, balancing prophecy, survival, and war with discipline.', quote: '"Respect the desert and it may let you live."' },
+        { faction: 'Imperial House Corrino', name: 'Princess Irulan', description: 'Royal strategist and political observer navigating alliances at the imperial court.', quote: '"History is written by those who endure."' },
+        { faction: 'House Harkonnen', name: 'Feyd-Rautha', description: 'A brutal gladiator and heir to Harkonnen ambition, bred to seize the throne of Arrakis.', quote: '"Mercy is weakness in disguise."' }
+      ],
+      es: [
+        { faction: 'Casa Atreides', name: 'Paul Atreides', description: 'Heredero de la Casa Atreides y el elegido para cambiar el universo.', quote: '"Mi camino conduce al desierto."' },
+        { faction: 'Bene Gesserit', name: 'Lady Jessica', description: 'Una Bene Gesserit leal a su hijo y a sus propios planes secretos.', quote: '"Controlar la especia es controlar el destino."' },
+        { faction: 'Casa Harkonnen', name: 'Baron Harkonnen', description: 'Antagonista implacable decidido a aplastar a los Atreides y dominar Arrakis.', quote: '"El miedo es la hoja que afilamos."' },
+        { faction: 'Fremen', name: 'Chani', description: 'Guerrera Fremen feroz, guia y aliada mas cercana de Paul en el levantamiento del desierto.', quote: '"Este mundo nos hizo fuertes."' },
+        { faction: 'Fremen', name: 'Stilgar', description: 'Lider del Sietch Tabr, equilibra profecia, supervivencia y guerra con disciplina.', quote: '"Respeta el desierto y quizas te dejara vivir."' },
+        { faction: 'Casa Imperial Corrino', name: 'Princesa Irulan', description: 'Estratega real y observadora politica en la corte imperial.', quote: '"La historia la escriben quienes resisten."' },
+        { faction: 'Casa Harkonnen', name: 'Feyd-Rautha', description: 'Gladiador brutal y heredero de la ambicion Harkonnen, criado para tomar Arrakis.', quote: '"La piedad es una debilidad disfrazada."' }
+      ],
+      ca: [
+        { faction: 'Casa Atreides', name: 'Paul Atreides', description: 'Hereu de la Casa Atreides i l\'escollit per canviar el desti de l\'univers.', quote: '"El meu cami condueix al desert."' },
+        { faction: 'Bene Gesserit', name: 'Lady Jessica', description: 'Una Bene Gesserit fidel al seu fill i als seus propis plans secrets.', quote: '"Controlar l\'especia es controlar el desti."' },
+        { faction: 'Casa Harkonnen', name: 'Baron Harkonnen', description: 'Antagonista implacable decidit a destruir els Atreides i dominar Arrakis.', quote: '"La por es la fulla que afilem."' },
+        { faction: 'Fremen', name: 'Chani', description: 'Guerrera Fremen ferotge, guia i aliada mes propera de Paul en l\'aixecament del desert.', quote: '"Aquest mon ens ha fet forts."' },
+        { faction: 'Fremen', name: 'Stilgar', description: 'Lider del Sietch Tabr, equilibra profecia, supervivencia i guerra amb disciplina.', quote: '"Respecta el desert i potser et deixara viure."' },
+        { faction: 'Casa Imperial Corrino', name: 'Princesa Irulan', description: 'Estratega reial i observadora politica a la cort imperial.', quote: '"La historia l\'escriuen els qui perduren."' },
+        { faction: 'Casa Harkonnen', name: 'Feyd-Rautha', description: 'Gladiador brutal i hereu de l\'ambicio Harkonnen, criat per conquerir Arrakis.', quote: '"La pietat es una feblesa disfressada."' }
+      ]
+    };
+
+    let currentLang = 'en';
+    let characters = charactersByLang[currentLang];
+
     const heroBg = document.querySelector('.hero-bg');
     heroBg.style.backgroundImage = `url('dune-part-three.jpg'), radial-gradient(circle at top left, rgba(52, 31, 15, 0.75), rgba(17, 17, 17, 0.9))`;
-    
-    // Parallax scroll
+
     window.addEventListener('scroll', () => {
       const scroll = window.pageYOffset;
       heroBg.style.transform = `translateY(${scroll * 0.35}px)`;
     });
+
+    const mapInfo = document.getElementById('map-info');
+    const mapMarkers = document.querySelectorAll('.map-marker');
+
+    function applyTranslations(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      const t = translations[lang];
+
+      document.getElementById('nav-story').textContent = t.navStory;
+      document.getElementById('nav-world').textContent = t.navWorld;
+      document.getElementById('nav-map').textContent = t.navMap;
+      document.getElementById('nav-characters').textContent = t.navCharacters;
+      document.getElementById('nav-gallery').textContent = t.navGallery;
+      document.getElementById('hero-title').textContent = t.heroTitle;
+      document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
+      document.getElementById('btn-trailer').textContent = t.btnTrailer;
+      document.getElementById('btn-explore').textContent = t.btnExplore;
+      document.getElementById('story-title').textContent = t.storyTitle;
+      document.getElementById('story-text').textContent = t.storyText;
+      document.getElementById('world-title').textContent = t.worldTitle;
+      document.getElementById('world-text').textContent = t.worldText;
+      document.getElementById('stat-spice-title').textContent = t.statSpiceTitle;
+      document.getElementById('stat-spice-text').textContent = t.statSpiceText;
+      document.getElementById('stat-worms-title').textContent = t.statWormsTitle;
+      document.getElementById('stat-worms-text').textContent = t.statWormsText;
+      document.getElementById('stat-fremen-title').textContent = t.statFremenTitle;
+      document.getElementById('stat-fremen-text').textContent = t.statFremenText;
+      document.getElementById('map-title').textContent = t.mapTitle;
+      document.getElementById('map-text').textContent = t.mapText;
+      document.getElementById('map-info-title').textContent = t.mapInfoTitle;
+      document.getElementById('map-info-text').textContent = t.mapInfoText;
+      document.getElementById('characters-title').textContent = t.charactersTitle;
+      document.getElementById('gallery-title').textContent = t.galleryTitle;
+      document.getElementById('footer-copy').textContent = t.footer;
+
+      t.gallery.forEach((label, idx) => {
+        const item = document.getElementById(`gal-${idx + 1}`);
+        if (item) item.textContent = label;
+      });
+
+      mapMarkers.forEach((marker, idx) => {
+        marker.dataset.title = mapLocations[lang][idx].title;
+        marker.dataset.info = mapLocations[lang][idx].info;
+      });
+
+      characters = charactersByLang[lang];
+      if (currentIndex >= characters.length) currentIndex = 0;
+
+      sliderDots.forEach((dot, idx) => {
+        dot.setAttribute('aria-label', characters[idx].name);
+      });
+
+      renderCharacter(currentIndex);
+
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+
+    mapMarkers.forEach((marker) => {
+      marker.addEventListener('mouseenter', () => {
+        mapInfo.innerHTML = `<h3>${marker.dataset.title}</h3><p>${marker.dataset.info}</p>`;
+      });
+      marker.addEventListener('click', () => {
+        mapInfo.innerHTML = `<h3>${marker.dataset.title}</h3><p>${marker.dataset.info}</p>`;
+      });
+    });
+
+    const slide = document.getElementById('character-slide');
+    const sliderDots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+
+    function renderCharacter(index) {
+      const current = characters[index];
+      slide.innerHTML = `
+        <p class="faction">${current.faction}</p>
+        <h3>${current.name}</h3>
+        <p>${current.description}</p>
+        <blockquote>${current.quote}</blockquote>
+      `;
+      sliderDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('active', dotIndex === index);
+      });
+    }
+
+    document.getElementById('prev-character').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + characters.length) % characters.length;
+      renderCharacter(currentIndex);
+    });
+
+    document.getElementById('next-character').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % characters.length;
+      renderCharacter(currentIndex);
+    });
+
+    sliderDots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        currentIndex = Number(dot.dataset.dot);
+        renderCharacter(currentIndex);
+      });
+    });
+
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      btn.addEventListener('click', () => applyTranslations(btn.dataset.lang));
+    });
+
+    applyTranslations('en');
   </script>
 </body>
 </html>

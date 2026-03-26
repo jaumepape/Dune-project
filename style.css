@@ -65,6 +65,7 @@ body {
  display: flex;
  gap: 10px;
  align-items: center;
+ flex-wrap: wrap;
 }
 
 .nav a {
@@ -77,16 +78,47 @@ body {
 
 .nav a:hover { color: var(--accent); transform: translateY(-1px); }
 
+.lang-switch {
+ display: inline-flex;
+ border: 1px solid rgba(212, 172, 111, 0.5);
+ border-radius: 999px;
+ overflow: hidden;
+ margin-left: 6px;
+}
+
+.lang-btn {
+ border: 0;
+ background: rgba(21, 15, 11, 0.75);
+ color: #cbb48c;
+ font-size: 0.73rem;
+ font-weight: 700;
+ letter-spacing: 0.08em;
+ padding: 7px 9px;
+ cursor: pointer;
+}
+
+.lang-btn:hover {
+ background: rgba(54, 40, 28, 0.9);
+ color: #f3dfb7;
+}
+
+.lang-btn.active {
+ background: #d4ac6f;
+ color: #1c130b;
+}
+
 .btn {
  border: 1px solid var(--accent);
  color: var(--accent);
  display: inline-block;
+ background: transparent;
  border-radius: 999px;
  padding: 8px 16px;
  font-weight: 700;
  text-transform: uppercase;
  letter-spacing: 0.08em;
  text-decoration: none;
+ cursor: pointer;
 }
 
 .btn-primary { background: rgba(212, 172, 111, .1); }
@@ -162,6 +194,139 @@ body {
 
 .card h3 { margin-top: 0; color: #e5d7b5; }
 
+.arrakis-map {
+ position: relative;
+ margin-top: 16px;
+ min-height: 340px;
+ border-radius: 16px;
+ border: 1px solid #3f3428;
+ background:
+    linear-gradient(160deg, rgba(16, 10, 7, 0.66), rgba(28, 18, 12, 0.76)),
+    url('Sand Dunes.jpg'),
+  radial-gradient(circle at 22% 30%, rgba(210, 176, 118, 0.22), transparent 30%),
+  radial-gradient(circle at 65% 55%, rgba(160, 113, 70, 0.25), transparent 38%),
+  linear-gradient(150deg, #2b1c12 0%, #5c3f25 45%, #1f140d 100%);
+ background-size: cover, cover, auto, auto, auto;
+ background-position: center, center, center, center, center;
+ overflow: hidden;
+}
+
+.map-marker {
+ position: absolute;
+ width: 18px;
+ height: 18px;
+ border-radius: 50%;
+ background: #fff0cd;
+ border: 2px solid #5f4626;
+ box-shadow: 0 0 0 10px rgba(255, 215, 155, 0.2);
+ transform: translate(-50%, -50%);
+ cursor: pointer;
+}
+
+.map-marker::after {
+ content: '';
+ position: absolute;
+ inset: -8px;
+ border-radius: 50%;
+ border: 1px solid rgba(255, 230, 190, 0.45);
+ animation: pulse 2s infinite;
+}
+
+.map-info {
+ position: absolute;
+ right: 16px;
+ bottom: 16px;
+ width: min(320px, 85%);
+ background: rgba(10, 8, 7, 0.75);
+ border: 1px solid #59462e;
+ border-radius: 12px;
+ padding: 14px;
+}
+
+.map-info h3 {
+ margin: 0 0 6px;
+ color: #ffe0aa;
+}
+
+.map-info p {
+ margin: 0;
+ color: #c7b79d;
+}
+
+.character-slider {
+ display: grid;
+ grid-template-columns: 56px 1fr 56px;
+ gap: 14px;
+ align-items: center;
+ margin-top: 18px;
+}
+
+.character-slide {
+ background: linear-gradient(140deg, rgba(42, 30, 20, 0.84), rgba(18, 12, 9, 0.88));
+ border: 1px solid #4c3b27;
+ border-radius: 14px;
+ padding: 22px;
+ min-height: 215px;
+}
+
+.character-slide h3 {
+ margin: 6px 0 10px;
+ color: #f5deb0;
+ font-size: 1.7rem;
+}
+
+.character-slide p {
+ margin: 0;
+}
+
+.faction {
+ margin: 0;
+ text-transform: uppercase;
+ letter-spacing: 0.08em;
+ color: #cf9f62;
+ font-size: 0.82rem;
+}
+
+.character-slide blockquote {
+ margin: 16px 0 0;
+ padding-left: 12px;
+ border-left: 2px solid #9d7645;
+ color: #d8c6aa;
+ font-style: italic;
+}
+
+.slider-arrow {
+ height: 56px;
+ width: 56px;
+ border-radius: 50%;
+ border: 1px solid #80653e;
+ background: rgba(22, 16, 12, 0.8);
+ color: #f0d5a5;
+ font-size: 1.6rem;
+ cursor: pointer;
+}
+
+.slider-dots {
+ display: flex;
+ gap: 10px;
+ justify-content: center;
+ margin-top: 14px;
+}
+
+.dot {
+ width: 10px;
+ height: 10px;
+ border-radius: 50%;
+ border: 1px solid #94734a;
+ background: rgba(148, 115, 74, 0.25);
+ cursor: pointer;
+}
+
+.dot.active {
+ background: #efc98b;
+ border-color: #efc98b;
+}
+
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 16px; }
 
 .gallery-item {
@@ -176,6 +341,49 @@ body {
  text-shadow: 0 1px 8px rgba(0,0,0,.7);
 }
 
+.gallery-sand-dunes {
+ background:
+  linear-gradient(160deg, rgba(18, 12, 8, 0.35), rgba(18, 12, 8, 0.55)),
+  url('Sand Dunes.jpg') center/cover no-repeat;
+}
+
+.gallery-placeholder {
+ border: 1px dashed rgba(236, 201, 139, 0.45);
+ background:
+  linear-gradient(160deg, rgba(22, 14, 9, 0.7), rgba(22, 14, 9, 0.5)),
+  repeating-linear-gradient(
+   -45deg,
+   rgba(236, 201, 139, 0.07),
+   rgba(236, 201, 139, 0.07) 10px,
+   rgba(0, 0, 0, 0.14) 10px,
+   rgba(0, 0, 0, 0.14) 20px
+  );
+}
+
+/* Replace each `none` with your image URL when ready. */
+.gallery-spice-harvest,
+.gallery-fremen-riders,
+.gallery-ornithopter,
+.gallery-sietch,
+.gallery-duel,
+.gallery-storm,
+.gallery-imperial,
+.gallery-worm,
+.gallery-prophecy {
+ background-size: cover;
+ background-position: center;
+}
+
+.gallery-spice-harvest { background-image: linear-gradient(160deg, rgba(18, 12, 8, 0.4), rgba(18, 12, 8, 0.6)), none; }
+.gallery-fremen-riders { background-image: linear-gradient(160deg, rgba(18, 12, 8, 0.4), rgba(18, 12, 8, 0.6)), none; }
+.gallery-ornithopter { background-image: linear-gradient(160deg, rgba(18, 12, 8, 0.4), rgba(18, 12, 8, 0.6)), none; }
+.gallery-sietch { background-image: linear-gradient(160deg, rgba(18, 12, 8, 0.4), rgba(18, 12, 8, 0.6)), none; }
+.gallery-duel { background-image: linear-gradient(160deg, rgba(18, 12, 8, 0.4), rgba(18, 12, 8, 0.6)), none; }
+.gallery-storm { background-image: linear-gradient(160deg, rgba(18, 12, 8, 0.4), rgba(18, 12, 8, 0.6)), none; }
+.gallery-imperial { background-image: linear-gradient(160deg, rgba(18, 12, 8, 0.4), rgba(18, 12, 8, 0.6)), none; }
+.gallery-worm { background-image: linear-gradient(160deg, rgba(18, 12, 8, 0.4), rgba(18, 12, 8, 0.6)), none; }
+.gallery-prophecy { background-image: linear-gradient(160deg, rgba(18, 12, 8, 0.4), rgba(18, 12, 8, 0.6)), none; }
+
 .footer {
  text-align: center;
  padding: 22px 16px;
@@ -184,7 +392,68 @@ body {
  font-size: .95rem;
 }
 
+.modal {
+ position: fixed;
+ inset: 0;
+ display: none;
+ align-items: center;
+ justify-content: center;
+ background: rgba(4, 3, 2, 0.86);
+ backdrop-filter: blur(3px);
+ z-index: 40;
+ padding: 20px;
+}
+
+.modal.is-open {
+ display: flex;
+}
+
+.modal-panel {
+ width: min(980px, 100%);
+ background: #0b0908;
+ border: 1px solid #4f3f2a;
+ border-radius: 16px;
+ padding: 16px;
+ position: relative;
+}
+
+.modal-close {
+ position: absolute;
+ top: 10px;
+ right: 12px;
+ border: 0;
+ background: transparent;
+ color: #d7b88a;
+ font-size: 2rem;
+ line-height: 1;
+ cursor: pointer;
+}
+
+.video-wrap {
+ position: relative;
+ padding-top: 56.25%;
+ border-radius: 10px;
+ overflow: hidden;
+ background: #000;
+}
+
+.video-wrap iframe {
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ border: 0;
+}
+
+@keyframes pulse {
+ 0% { transform: scale(0.9); opacity: 0.9; }
+ 100% { transform: scale(1.35); opacity: 0; }
+}
+
 @media (max-width: 740px) {
  .hero-header { flex-wrap: wrap; gap: 10px; }
  .nav { justify-content: center; }
+ .character-slider { grid-template-columns: 1fr; }
+ .slider-arrow { width: 100%; border-radius: 10px; height: 42px; }
+ .map-info { position: static; width: auto; margin: 14px; }
 }
