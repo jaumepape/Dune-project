@@ -257,6 +257,15 @@
 
     const mapInfo = document.getElementById('map-info');
     const mapMarkers = document.querySelectorAll('.map-marker');
+    const mapInfoTitleEl = document.getElementById('map-info-title');
+    const mapInfoTextEl = document.getElementById('map-info-text');
+    let activeMapMarkerIndex = null;
+
+    function setMapInfo(title, info) {
+      if (!mapInfoTitleEl || !mapInfoTextEl) return;
+      mapInfoTitleEl.textContent = title;
+      mapInfoTextEl.textContent = info;
+    }
 
     function applyTranslations(lang) {
       currentLang = lang;
@@ -284,8 +293,6 @@
       document.getElementById('stat-fremen-text').textContent = t.statFremenText;
       document.getElementById('map-title').textContent = t.mapTitle;
       document.getElementById('map-text').textContent = t.mapText;
-      document.getElementById('map-info-title').textContent = t.mapInfoTitle;
-      document.getElementById('map-info-text').textContent = t.mapInfoText;
       document.getElementById('characters-title').textContent = t.charactersTitle;
       document.getElementById('gallery-title').textContent = t.galleryTitle;
       document.getElementById('footer-copy').textContent = t.footer;
@@ -299,6 +306,13 @@
         marker.dataset.title = mapLocations[lang][idx].title;
         marker.dataset.info = mapLocations[lang][idx].info;
       });
+
+      if (activeMapMarkerIndex === null) {
+        setMapInfo(t.mapInfoTitle, t.mapInfoText);
+      } else {
+        const activeLocation = mapLocations[lang][activeMapMarkerIndex];
+        setMapInfo(activeLocation.title, activeLocation.info);
+      }
 
       characters = charactersByLang[lang];
       if (currentIndex >= characters.length) currentIndex = 0;
@@ -314,12 +328,14 @@
       });
     }
 
-    mapMarkers.forEach((marker) => {
+    mapMarkers.forEach((marker, idx) => {
       marker.addEventListener('mouseenter', () => {
-        mapInfo.innerHTML = `<h3>${marker.dataset.title}</h3><p>${marker.dataset.info}</p>`;
+        activeMapMarkerIndex = idx;
+        setMapInfo(marker.dataset.title, marker.dataset.info);
       });
       marker.addEventListener('click', () => {
-        mapInfo.innerHTML = `<h3>${marker.dataset.title}</h3><p>${marker.dataset.info}</p>`;
+        activeMapMarkerIndex = idx;
+        setMapInfo(marker.dataset.title, marker.dataset.info);
       });
     });
 
@@ -358,10 +374,28 @@
     });
 
     document.querySelectorAll('.lang-btn').forEach((btn) => {
-      btn.addEventListener('click', () => applyTranslations(btn.dataset.lang));
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        applyTranslations(lang);
+        try {
+          localStorage.setItem('dune_lang', lang);
+        } catch (error) {
+          // Ignore storage errors (private mode or restricted environments).
+        }
+      });
     });
 
-    applyTranslations('en');
+    let initialLang = 'en';
+    try {
+      const savedLang = localStorage.getItem('dune_lang');
+      if (savedLang && translations[savedLang]) {
+        initialLang = savedLang;
+      }
+    } catch (error) {
+      // Fallback to English when localStorage is unavailable.
+    }
+
+    applyTranslations(initialLang);
   </script>
 </body>
 </html>
